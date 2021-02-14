@@ -24,8 +24,8 @@ while go_on:
         print("Do you want to continue?")
         temp_go_on = input()
         if temp_go_on == "y" or temp_go_on == "Y":
-            go_on = False
-        else:
             go_on = True
+        else:
+            go_on = False
     if teacher_input == "e" or teacher_input == "E":
         go_on = False
