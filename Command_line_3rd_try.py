@@ -9,14 +9,14 @@ while go_on:
     random_number = random.randint(0,len(students_name)-1)
     print(students_name[random_number])
     student_name = students_name[random_number]
-     teacher_input = input("""
+    teacher_input = input("""
     Present and answered question:
     Absent:
     Not attentive:
     Show:
     Exit:
     """)
-    if  teacher_input == p or  teacher_input == P or  teacher_input == a or  teacher_input == A or  teacher_input == n or  teacher_input == N:
+    if  teacher_input == p or teacher_input == P or  teacher_input == a or  teacher_input == A or  teacher_input == n or  teacher_input == N:
         student_info = [student_name,  teacher_input]
         students_info.append(student_info)
     if  teacher_input == S or  teacher_input == s:
