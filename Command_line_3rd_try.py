@@ -16,16 +16,16 @@ while go_on:
     Show:
     Exit:
     """)
-    if  teacher_input == "p" or teacher_input == "P" or  teacher_input == "a" or  teacher_input == "A" or  teacher_input == "n" or  teacher_input == "N":
+    teacher_input = teacher_input.lower()
+    if  teacher_input == "p" or  teacher_input == "a" or  teacher_input == "n":
         student_info = [student_name,  teacher_input]
         students_info.append(student_info)
-    if  teacher_input == "S" or  teacher_input == "s":
+    if  teacher_input == "s":
         print(students_info)
-        print("Do you want to continue?")
-        temp_go_on = input()
+        temp_go_on = input("Do you want to continue?")
         if temp_go_on == "y" or temp_go_on == "Y":
             go_on = True
         else:
             go_on = False
-    if teacher_input == "e" or teacher_input == "E":
+    if teacher_input == "e":
         go_on = False
