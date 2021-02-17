@@ -1,4 +1,6 @@
 import random
+from sys import argv
+from os.path import exists
 
 students_info = []
 students_processed=[]
@@ -49,3 +51,21 @@ while go_on:
     else:
         print("You did not answer with PANSE, so try again. This try will not be shown.")
         go_on = True
+
+dectory = input("Enter a path to a new file here(word prefrebly).")
+print("Opening the file...")
+target = open(dectory, "w")
+print("Clearing everything that is in the new file. Goodbye.")
+target.truncate()
+print("I am going to write the students' info in the new file.")
+meeting = input("What meeting is this?")
+target.write(f"{meeting} Meeting Info:\n\n\n\n")
+i=0
+while i < 26:
+    target.write(f"{students_info[i][0]} is {students_info[i][1]}.")
+    target.write("\n\n")
+    i+=1
+
+print("And fianally, we close it.")
+target.close()
+print("It is done. Open that file!")
