@@ -72,6 +72,7 @@ target.write(f"{meeting} Meeting Info:\n\n\n\n")
 i=0
 while i < 26:
     target.write(f"{students_info[i][0]} is {students_info[i][1]}.")
+    target.write("")
     i+=1
 
 print("And fianally, we close it.")
