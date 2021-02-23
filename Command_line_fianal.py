@@ -12,7 +12,7 @@ while go_on:
     random_number = random.randint(0,len(students_name)-1)
     student_name = students_name[random_number]
     
-    if len(students_name)-1 == 25-1:
+    if len(students_name)-1 == 25:
         print(f"""
         For this meeting, all names have been exhausted.
         There is the info:
