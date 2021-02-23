@@ -58,7 +58,7 @@ while go_on:
 
 dectory = input("Enter a path to a new file here(word prefrebly).")
 print("Opening the file...")
-target = open(dectory, "w")
+target = open(dectory + ".txt", "w")
 
 print("Clearing everything that is in the new file. Goodbye.")
 target.truncate()
@@ -69,9 +69,9 @@ meeting = input("What meeting is this?")
 target.write(f"{meeting} Meeting Info:\n\n\n\n")
 
 i=0
-while i < 26:
+while i < len(info_list):
     target.write(f"{info_list[i][0]} is {info_list[i][1]}.")
-    target.write("")
+    target.write("\n")
     i+=1
 
 print("And fianally, we close it.")
