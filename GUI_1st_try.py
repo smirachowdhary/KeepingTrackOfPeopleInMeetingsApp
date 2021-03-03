@@ -32,7 +32,6 @@ while go_on:
         Present and answered question:
         Absent:
         Not attentive:
-        Show:
         Exit:
     """)
     teacher_input = teacher_input.lower()
@@ -42,22 +41,14 @@ while go_on:
         info_list.append(student_info)
         processed_list.append(student_name)
     
-    elif  teacher_input == "s":
-        print(info_list)
-        temp_go_on = input("Do you want to continue?")
-        temp_go_on = temp_go_on.lower()
-        if temp_go_on == "y":
-            go_on = True
-        else:
-            go_on = False
-    
     elif teacher_input == "e":
         go_on = False
     
     else:
-        print("You did not answer with PANSE, so try again. This try will not be shown.")
+        print("You did not answer with PANE, so try again. This try will not be shown.")
         go_on = True
 
+window.mainloop()
 dectory = input("Enter a path to a new file here(word prefrebly).")
 print("Opening the file...")
 target = open(dectory + ".txt", "w")
