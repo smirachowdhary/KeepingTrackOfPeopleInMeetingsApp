@@ -1,5 +1,4 @@
 import random
-import tkinter as tk
 from sys import argv
 from os.path import exists
 
@@ -47,7 +46,6 @@ while go_on:
         print("You did not answer with PANE, so try again. This try will not be shown.")
         go_on = True
 
-window.mainloop()
 dectory = input("Enter a path to a new file here(word prefrebly).")
 print("Opening the file...")
 target = open(dectory + ".txt", "w")
