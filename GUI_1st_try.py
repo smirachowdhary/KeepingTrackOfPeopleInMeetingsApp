@@ -50,13 +50,13 @@ BtnFrame.pack()
 listsFrame = tk.Frame()
 
 pLbl = tk.Label(text = "Present:\n", master = listsFrame)
-pLbl.pack()
+pLbl.pack(side = LEFT)
 
 aLbl = tk.Label(text = "Absent:\n", master = listsFrame)
-aLbl.pack()
+aLbl.pack(side = LEFT)
 
 nLbl = tk.Label(text = "Needs Attention:\n", master = listsFrame)
-nLbl.pack()
+nLbl.pack(side = LEFT)
 
 listsFrame.pack()
 
