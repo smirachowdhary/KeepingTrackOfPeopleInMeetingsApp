@@ -1,9 +1,13 @@
 import tkinter as tk
 from tkinter import *
+import random
 
 present_list = []
 absent_list = []
 needs_attention_list = []
+name_list = ["LEONIS", "BRIAN", "TYLER", "RACHEL", "SMIRA", "ISAAC", "THOMAS", "ALLISON", "YANA", "SAMUEL",
+ "AIDAN", "NATALIE", "ALI", "JONATHAN", "AZIZA", "MICHAELA", "ALISTAIR", "PARAMEE", "EVELYN", "MAYA", "ISABEL",
+ "ARIA", "XAVIER", "ALYSSA", "NATHAN", "DARREN"]
 
 def nBtn_Handler(event):
     name = nameTB.get()
@@ -33,17 +37,14 @@ nameTB.pack()
 
 BtnFrame = tk.Frame()
 
-pBtn = tk.Button(text = "P", master = BtnFrame)
-pBtn.bind("<Button-1>", pBtn_Handler)
-pBtn.pack(side = LEFT)
+def create_buttons(text, handler):
+    name = tk.Button(text = text, master = BtnFrame)
+    name.bind("<Button-1>", handler)
+    name.pack(side = LEFT)
 
-aBtn = tk.Button(text = "A", master = BtnFrame)
-aBtn.bind("<Button-1>", aBtn_Handler)
-aBtn.pack(side = LEFT)
-
-nBtn = tk.Button(text = "N", master = BtnFrame)
-nBtn.bind("<Button-1>", nBtn_Handler)
-nBtn.pack(side = LEFT)
+create_buttons("P", pBtn_Handler)
+create_buttons("A", aBtn_Handler)
+create_buttons("N", nBtn_Handler)
 
 BtnFrame.pack()
 
