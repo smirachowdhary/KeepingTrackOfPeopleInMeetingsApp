@@ -16,9 +16,9 @@ showNameLbl.pack()
 
 listsFrame = tk.Frame()
 
-sl1 = studentList.StudentList(listsFrame,"Present", s1, showNameLbl)
-sl2 = studentList.StudentList(listsFrame,"Absent", s1, showNameLbl)
-sl3 = studentList.StudentList(listsFrame,"Needs Attention", s1, showNameLbl)
+sl1 = studentList.StudentList(listsFrame,"Present", s1, showNameLbl, "p")
+sl2 = studentList.StudentList(listsFrame,"Absent", s1, showNameLbl, "a")
+sl3 = studentList.StudentList(listsFrame,"Needs Attention", s1, showNameLbl, "n")
 
 listsFrame.pack()
 
