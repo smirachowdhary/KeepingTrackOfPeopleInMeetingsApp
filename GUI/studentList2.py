@@ -27,6 +27,6 @@ class StudentList:
 
     def get_all_names(self):
         temp = self.titleLbl.cget("text") + "\n\n"
-        temp += "".join(self.students)
+        temp += "\n".join(self.students)
         return temp
 
