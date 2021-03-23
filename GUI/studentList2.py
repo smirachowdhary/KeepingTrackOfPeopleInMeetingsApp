@@ -26,8 +26,7 @@ class StudentList:
         self.showNameLbl["text"] = self.studentObj.get_current_name()
 
     def get_all_names(self):
-        temp = self.titleLbl.cget("text") + "\n"
-        temp += "\n".join(self.students)
-        temp += "\n\n"
+        temp = self.titleLbl.cget("text") + "\n\n"
+        temp += "".join(self.students)
         return temp
 
