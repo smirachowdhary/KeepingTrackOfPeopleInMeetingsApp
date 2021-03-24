@@ -8,7 +8,7 @@ class Student:
     def __init__(self):
         self.name_list = []
 
-        path = "C:\\Smira\\GitHub\\KeepingTrackOfPeopleInMeetingsApp\\Names"
+        path = "C:\\School\\5thGrade\\Student_Names"
         os.chdir(path)
 
         name_file = open("Student_Names" + ".txt", "r")
