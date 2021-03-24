@@ -3,7 +3,6 @@ from tkinter import *
 from tkinter import font
 import student
 import studentList2
-    
 
 s1 = student.Student()
 
