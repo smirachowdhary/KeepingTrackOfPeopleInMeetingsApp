@@ -8,8 +8,8 @@ class Student:
     def __init__(self):
         self.name_list = []
 
-        path = "Student_Names"
-        os.chdir(path)
+        file_path = os.path.dirname(os.path.realpath(__file__))
+        os.chdir(file_path)
 
         name_file = open("Student_Names" + ".txt", "r")
 
