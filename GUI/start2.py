@@ -3,26 +3,36 @@ from tkinter import *
 from tkinter import font
 import student
 import studentList2
+import datetime
 
+# Info color = #cff4fc 
+ 
 s1 = student.Student()
 
-window = tk.Tk(className = "My Program2")
+window = tk.Tk()
+window.title("PAN Application")
+window.configure(bg='#f8f9fa')
 
-nameLbl = tk.Label(text = "Selected Name:")
-nameLbl.pack()
+meetingFrame = tk.Frame()
+meetingLbl = tk.Label(text = "Meeting Name", master = meetingFrame,bg='#f8f9fa', font = "Arial 15")
+meetingLbl.pack(side = LEFT)
+meetingEntry = tk.Entry(master = meetingFrame,bg='#f8f9fa', font = "Arial 15")
+meetingEntry.pack(side = LEFT)
+meetingFrame.pack(padx=5, pady=5)
+
+nameLbl = tk.Label(text = "Selected Name:",bg='#f8f9fa', pady=10, padx=10, font="Arial 15")
+nameLbl.pack(padx=5, pady=5)
 
 s1.get_random_name()
 showNameLbl = tk.Label(
-    text = s1.get_current_name(),
-    justify= CENTER,
-    width=100,
-    height=2,
-    bg="black",
-    fg="white",
-    relief = GROOVE)
-showNameLbl.pack()
+    text = s1.get_current_name().strip(),
+    relief = RIDGE,
+    font = 'Verdana 36 bold',
+    bg = "#d1e7dd",
+    fg = "#0f5132")
+showNameLbl.pack(padx=5, pady=10, ipadx=20, ipady=10)
 
-listsFrame = tk.Frame(relief=RAISED)
+listsFrame = tk.Frame(relief=RAISED, bg='#f8f9fa')
 
 sl1 = studentList2.StudentList(listsFrame,"Present", s1, showNameLbl)
 sl2 = studentList2.StudentList(listsFrame,"Absent", s1, showNameLbl)
@@ -31,9 +41,14 @@ sl3 = studentList2.StudentList(listsFrame,"Needs Attention", s1, showNameLbl)
 listsFrame.pack()
 
 def save_handler(event):
-    dectory = dectoryEntry.get()
+    nameP1 = meetingEntry.get().strip()
+    if not nameP1:
+        nameP1 = "Meeting"
+    d1 = datetime.datetime.now()
+    file_name = f"{nameP1}_Notes_{d1.year}_{d1.month}_{d1.day}_{d1.hour}.txt"
+    output_file = s1.get_data_dir() + "\\" + file_name
 
-    target = open(dectory + ".txt", "w")
+    target = open(output_file , "w")
     target.truncate()
 
     meeting = meetingEntry.get()
@@ -43,22 +58,21 @@ def save_handler(event):
     target.write(sl2.get_all_names())
     target.write(sl3.get_all_names())
 
-save_btn = tk.Button(text = "Save")
+    infoLabel["text"] += "\n" + "Your data is now at:" + "\n" + output_file
+
+footerFrame = tk.Frame()
+save_btn = tk.Button(text = "Save",bg='#0d6efd', fg = "#fff", font = "Arial 15", master=footerFrame)
 save_btn.bind("<Button-1>", save_handler)
-save_btn.pack()
+save_btn.pack(padx=5, pady=5, side = RIGHT)
 
-meeting_nameFrame = tk.Frame()
-meetingLbl = tk.Label(text = "What meeting is this?", master = meeting_nameFrame)
-meetingLbl.pack()
-meetingEntry = tk.Entry(master = meeting_nameFrame)
-meetingEntry.pack()
-meeting_nameFrame.pack(side = LEFT)
+infoLabel = tk.Label(
+    text = s1.get_input_filename(),
+    font = 'Arial 15',
+    bg = "#cff4fc",
+    fg = "#055160",
+    master=footerFrame)
+infoLabel.pack(padx=5, pady=10, ipadx=20, ipady=10)
 
-dectoryFrame = tk.Frame()
-dectoryLbl = tk.Label(text = "Enter a new file's name here:", master = dectoryFrame)
-dectoryLbl.pack()
-dectoryEntry = tk.Entry(master = dectoryFrame)
-dectoryEntry.pack()
-dectoryFrame.pack(side = LEFT)
+footerFrame.pack(side=BOTTOM, padx=5, pady=10)
 
 window.mainloop()

@@ -8,16 +8,22 @@ class Student:
     def __init__(self):
         self.name_list = []
 
-        file_path = os.path.dirname(os.path.realpath(__file__))
-        os.chdir(file_path)
+        self.file_path = os.path.dirname(os.path.realpath(__file__))
+        self.input_file_name = self.file_path + "\\Student_Names.txt"
 
-        name_file = open("Student_Names" + ".txt", "r")
+        name_file = open(self.input_file_name, "r")
 
         for line in name_file:
             self.name_list.append(line)
 
         self.random_end = len(self.name_list)-1
         self.current_name = ""
+
+    def get_data_dir(self):
+        return self.file_path
+
+    def get_input_filename(self):
+        return "Student Names are read from this path:\n" + self.input_file_name
 
     def get_random_name(self):
         if self.random_end < 0 :
